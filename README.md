@@ -1,3 +1,4 @@
+
 # PhishGuard: AI cybersecurity assistant
 
 Paste a suspicious SMS, email or link. PhishGuard returns a risk score, plain-language reasons, and safe next steps.
@@ -30,3 +31,7 @@ gcloud run deploy phishguard --source . --region asia-south1 --allow-unauthentic
 - **Testing:** pytest covers analyzer logic, API validation, and headers.
 - **Accessibility:** semantic HTML, labelled controls, skip link, `aria-live` results, visible focus, dark mode, reduced motion, 44px targets.
 - **Google services:** Gemini API, Safe Browsing API, Cloud Run.
+
+# phishguard
+AI-powered phishing and scam detection tool that analyzes suspicious messages, emails, and URLs, identifies warning signs, assigns risk scores, and provides safety recommendations using Python and Google Gemini.
+ 1c982098ee291dd10cd55d178aebb773452845ec
