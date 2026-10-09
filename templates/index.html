@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PhishGuard: is this message safe?</title>
+  <meta name="description" content="Paste a message or link. PhishGuard explains in plain language whether it looks like phishing.">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <a class="skip" href="#checker">Skip to checker</a>
+  <header>
+    <h1>Is this message a trap?</h1>
+    <p>Paste a suspicious SMS, email or link. You get a risk level, the reasons, and what to do next.</p>
+  </header>
+  <main id="checker">
+    <form id="form" novalidate>
+      <label for="input">Message or link to check</label>
+      <textarea id="input" name="text" rows="6" maxlength="4000" aria-describedby="hint" required></textarea>
+      <p id="hint" class="hint">Nothing is stored. Never paste real passwords or OTPs.</p>
+      <div class="row">
+        <button type="submit" id="go">Check it</button>
+        <button type="button" class="ghost" data-sample="Dear customer, your SBI account will be blocked within 24 hours. Complete KYC now: http://sbi-kyc-update.top/login and share the OTP.">Try a bank scam</button>
+        <button type="button" class="ghost" data-sample="https://www.google.com/maps">Try a safe link</button>
+      </div>
+    </form>
+    <p id="error" class="error" role="alert" hidden></p>
+    <section id="result" aria-live="polite" aria-labelledby="verdict" hidden>
+      <h2 id="verdict"></h2>
+      <div class="meter" role="meter" aria-label="Risk score" aria-valuemin="0" aria-valuemax="100"><span id="bar"></span></div>
+      <p id="explain"></p>
+      <h3>Warning signs</h3>
+      <ul id="findings"></ul>
+      <h3>What to do</h3>
+      <ul id="advice"></ul>
+      <p class="hint" id="source"></p>
+    </section>
+  </main>
+  <footer><p>Heuristics are a guide, not a guarantee. When unsure, contact the sender through an official channel.</p></footer>
+  <script src="{{ url_for('static', filename='app.js') }}" defer></script>
+</body>
+</html>
